@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppLembreteMedicacao.Views.CronogramaPage"
+             Title="Cronograma">
+
+    <ScrollView>
+    <VerticalStackLayout Padding="30" Spacing="15">
+    <Label Text="Cronograma do Remédio" FontSize="24" HorizontalOptions="Center" FontAttributes="Bold" />
+
+     
+    <CollectionView x:Name="listaCronogramas">
+    <CollectionView.ItemTemplate>
+    <DataTemplate>
+    <HorizontalStackLayout Spacing="15">
+    <Label Text="{Binding Hora}" FontSize="18"/>
+    <Label Text="{Binding Frequencia}" FontSize="18"/>
+
+     <!-- Botão de remover -->
+    <Button Text="✖️" 
+     TextColor="Red"
+     BackgroundColor="Transparent" 
+     Clicked="AoClicarRemoverHorario"
+     CommandParameter="{Binding Id}"/>
+
+    </HorizontalStackLayout>
+    </DataTemplate>
+    </CollectionView.ItemTemplate>
+            </CollectionView>
+
+  
+     <ImageButton x:Name="btnAdicionarHorario"
+      Source="clock.png"
+      WidthRequest="50"
+      HeightRequest="50"
+      Clicked="AoClicarAdicionarHorario"/>
+        
+    </VerticalStackLayout>
+    </ScrollView>
+    </ContentPage>

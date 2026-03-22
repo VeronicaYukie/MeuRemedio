@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppLembreteMedicacao.MainPage"
+             Title="Meu Remédio">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30" Spacing="15">
+            <Label Text="Cadastro de Remédio" FontSize="24" HorizontalOptions="Center" FontAttributes="Bold" />
+
+            <Entry x:Name="entNome" Placeholder="Nome do Remédio"/>
+            <Entry x:Name="entDose" Placeholder="Dosagem (ex: 500mg)"/>
+
+            <Label Text="Data de Início:" />
+            <DatePicker x:Name="dtInicio" Format="dd/MM/yyyy"/>
+
+            <Label Text="Data Final:" />
+            <DatePicker x:Name="dtFim" Format="dd/MM/yyyy"/>
+
+            <Button Text="Salvar" Clicked="AoClicarSalvar"
+                    BackgroundColor="#27ae60" TextColor="White"/>
+
+          
+
+            <Button x:Name="btnCronograma"
+        
+             Text="Cronograma"
+             Clicked="AoClicarCronograma"
+             BackgroundColor="#6A0DAD"
+             TextColor="White"
+             CornerRadius="10"
+             HeightRequest="50"/>
+            
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
+    

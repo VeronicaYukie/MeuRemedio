@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppLembreteMedicacao.Views.AdicionarHorarioPage"
+             BackgroundColor="#80000000">
+    <!-- semi-transparente -->
+
+    <Frame VerticalOptions="Center" HorizontalOptions="Center"
+           Padding="20" CornerRadius="15" BackgroundColor="White"
+           WidthRequest="300">
+
+        <VerticalStackLayout Spacing="15">
+
+            <Label Text="Adicionar Horário" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center" />
+
+            <TimePicker x:Name="timePicker" Time="08:00" />
+
+            <Picker x:Name="pickerFrequencia" Title="Frequência">
+                <Picker.Items>
+                    <x:String>Diária</x:String>
+                    <x:String>Semanal</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <HorizontalStackLayout Spacing="15" HorizontalOptions="Center">
+                <Button Text="Cancelar" BackgroundColor="#e74c3c" TextColor="White"
+                        Clicked="Cancelar_Clicked"/>
+                <Button Text="Adicionar" BackgroundColor="#27ae60" TextColor="White"
+                        Clicked="Adicionar_Clicked"/>
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+    </Frame>
+</ContentPage>
