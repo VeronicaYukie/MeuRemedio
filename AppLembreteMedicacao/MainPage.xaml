@@ -20,7 +20,10 @@
             <Button Text="Salvar" Clicked="AoClicarSalvar"
                     BackgroundColor="#27ae60" TextColor="White"/>
 
-          
+            <Button Text="Novo Remédio" Clicked="AoClicarNovoRemedio"
+                    BackgroundColor="#27ae60" TextColor="White"/>
+
+
 
             <Button x:Name="btnCronograma"
         
@@ -30,7 +33,27 @@
              TextColor="White"
              CornerRadius="10"
              HeightRequest="50"/>
-            
+
+            <Label Text="Meus Remédios Agendados:" FontAttributes="Bold" Margin="0,20,0,5" />
+
+            <CollectionView x:Name="listaMedicamentos" EmptyView="Nenhum remédio cadastrado ainda.">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="#27ae60" CornerRadius="10" Margin="0,5" Padding="10">
+                            <HorizontalStackLayout Spacing="15">
+                                <VerticalStackLayout VerticalOptions="Center">
+                                    <Label Text="{Binding Nome}" FontAttributes="Bold" FontSize="18" />
+                                    <Label Text="{Binding Dosagem}" FontSize="14" TextColor="Gray" />
+                                </VerticalStackLayout>
+
+                                <Label Text="{Binding IntervaloHoras, StringFormat='A cada {0}h'}" 
+                           VerticalOptions="Center" HorizontalOptions="End" />
+                            </HorizontalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
