@@ -1,4 +1,5 @@
-﻿using AppLembreteMedicacao.Models;
+﻿using AppLembreteMedicacao.Helpers;
+using AppLembreteMedicacao.Models;
 using AppLembreteMedicacao.Views;
 using Plugin.LocalNotification;
 
@@ -170,11 +171,15 @@ public partial class MainPage : ContentPage
             prontuario += $"💊 {m.Nome} ({m.Dosagem})\n";
         }
 
+        // --- AQUI ENTRA A SEGURANÇA (VERONICA) ---
+        // Chamamos o SecurityHelper para proteger o texto
+        string hashSeguro = SecurityHelper.GerarHash(prontuario);
+
         // 3. Abre a opção de compartilhar do celular (WhatsApp, E-mail, etc)
         await Share.Default.RequestAsync(new ShareTextRequest
         {
-            Title = "Compartilhar Prontuário",
-            Text = prontuario,
+            Title = "Compartilhar Prontuário (Protegido)",
+            Text = $"Hash de Segurança:\n{hashSeguro}",
             Uri = "App Meu Remédio"
 
         });
