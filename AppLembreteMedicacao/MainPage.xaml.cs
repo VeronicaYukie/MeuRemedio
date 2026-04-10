@@ -164,7 +164,7 @@ public partial class MainPage : ContentPage
         }
 
         // 2. Monta o texto do prontuário formatado
-        string prontuario = $"📋 MEU PRONTUÁRIO MÉDICO - {DateTime.Now:dd/MM/yyyy}\n\n";
+        string prontuario = $"📋 MEU PRONTUÁRIO - {DateTime.Now:dd/MM/yyyy}\n\n";
         foreach (var m in lista)
         {
             prontuario += $"💊 {m.Nome} ({m.Dosagem})\n";
@@ -176,6 +176,9 @@ public partial class MainPage : ContentPage
             Title = "Compartilhar Prontuário",
             Text = prontuario,
             Uri = "App Meu Remédio"
+
         });
+        // ADICIONE ISSO ABAIXO DO SHARE:
+        await DisplayAlert("Sucesso", "Compartilhamento concluído! Retornando ao início...", "OK");
     }
 }
