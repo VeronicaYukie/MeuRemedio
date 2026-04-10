@@ -4,6 +4,12 @@
              x:Class="AppLembreteMedicacao.MainPage"
              Title="Meu Remédio">
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Compartilhar Prontuário" 
+                     Clicked="ToolbarItem_Clicked_1" 
+                     Order="Primary" />
+    </ContentPage.ToolbarItems>
+
     <ScrollView>
         <VerticalStackLayout Padding="30" Spacing="15">
             <Label Text="Cadastro de Remédio" FontSize="24" HorizontalOptions="Center" FontAttributes="Bold" />

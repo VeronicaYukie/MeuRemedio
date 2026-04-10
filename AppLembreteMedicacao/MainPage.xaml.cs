@@ -146,4 +146,36 @@ public partial class MainPage : ContentPage
     {
 
     }
+
+    private void ToolbarItem_Clicked(object sender, EventArgs e)
+    {
+
+    }
+
+    private async void ToolbarItem_Clicked_1(object sender, EventArgs e)
+    {
+        // 1. Busca os remédios salvos no banco SQLite configurado ontem
+        var lista = await App.Banco.GetMedicamentos();
+
+        if (lista == null || lista.Count == 0)
+        {
+            await DisplayAlert("Prontuário", "Você ainda não tem remédios cadastrados.", "OK");
+            return;
+        }
+
+        // 2. Monta o texto do prontuário formatado
+        string prontuario = $"📋 MEU PRONTUÁRIO MÉDICO - {DateTime.Now:dd/MM/yyyy}\n\n";
+        foreach (var m in lista)
+        {
+            prontuario += $"💊 {m.Nome} ({m.Dosagem})\n";
+        }
+
+        // 3. Abre a opção de compartilhar do celular (WhatsApp, E-mail, etc)
+        await Share.Default.RequestAsync(new ShareTextRequest
+        {
+            Title = "Compartilhar Prontuário",
+            Text = prontuario,
+            Uri = "App Meu Remédio"
+        });
+    }
 }
