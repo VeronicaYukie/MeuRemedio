@@ -9,6 +9,10 @@ public static SQLiteDatabaseHelper Banco { get; private set; }
     public App()
     {
         InitializeComponent();
+
+        // habilita a barra azul/roxa no topo com os menus 09/04
+        MainPage = new NavigationPage(new MainPage());
+    
         // 1. Configura o Banco de Dados 07/04
         if (Banco == null)
         {

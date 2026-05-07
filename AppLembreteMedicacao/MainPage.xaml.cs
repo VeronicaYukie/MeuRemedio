@@ -146,4 +146,41 @@ public partial class MainPage : ContentPage
     {
 
     }
+
+    private async void ToolbarItem_Clicked(object sender, EventArgs e)
+    {
+        // 1. Busca todos os medicamentos do banco de dados
+        var lista = await App.Banco.GetMedicamentos();
+
+        if (lista == null || lista.Count == 0)
+        {
+            await DisplayAlert("Prontuário Vazio", "Não há registros para compartilhar.", "OK");
+            return;
+        }
+
+        // 2. Monta o corpo do Prontuário
+        string prontuario = $"📋 PRONTUÁRIO MÉDICO - {DateTime.Now:dd/MM/yyyy}\n";
+        prontuario += "------------------------------------------\n\n";
+
+
+        foreach (var m in lista)
+        {
+            string status = m.Ativo == 1 ? "✅ Ativo" : "❌ Finalizado/Excluído";
+
+            prontuario += $"💊 Remédio: {m.Nome}\n";
+            prontuario += $"   Dose: {m.Dosagem}\n";
+            prontuario += $"   Início: {m.DataInicio:dd/MM/yyyy}\n";
+            prontuario += $"   Status: {status}\n";
+            prontuario += "------------------------------------------\n";
+        }
+
+        prontuario += "\nGerado pelo App Meu Remédio.";
+
+        // 3. Abre a janela de compartilhamento do celular
+        await Share.Default.RequestAsync(new ShareTextRequest
+        {
+            Title = "Prontuário do Paciente",
+            Text = prontuario
+        });
+    }
 }
