@@ -1,4 +1,4 @@
-﻿using AppLembreteMedicacao.Helpers;
+﻿
 using AppLembreteMedicacao.Models;
 using AppLembreteMedicacao.Views;
 using Plugin.LocalNotification;
@@ -127,7 +127,7 @@ public partial class MainPage : ContentPage
         }
     }
 
-   /* private async void OnDeleteClicked(object sender, EventArgs e)
+   private async void OnDeleteClicked(object sender, EventArgs e)
     {
         var med = (sender as Button).CommandParameter as Medicamento;
 
@@ -145,7 +145,7 @@ public partial class MainPage : ContentPage
 
    
 
-    private async void ToolbarItem_Clicked_1(object sender, EventArgs e)
+    /*private async void ToolbarItem_Clicked_1(object sender, EventArgs e)
     {
         // 1. Busca os remédios salvos no banco SQLite configurado ontem
         var lista = await App.Banco.GetMedicamentos();
