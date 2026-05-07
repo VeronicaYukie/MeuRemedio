@@ -127,7 +127,7 @@ public partial class MainPage : ContentPage
         }
     }
 
-    private async void OnDeleteClicked(object sender, EventArgs e)
+   /* private async void OnDeleteClicked(object sender, EventArgs e)
     {
         var med = (sender as Button).CommandParameter as Medicamento;
 
@@ -145,7 +145,7 @@ public partial class MainPage : ContentPage
 
    
 
-   /* private async void ToolbarItem_Clicked_1(object sender, EventArgs e)
+    private async void ToolbarItem_Clicked_1(object sender, EventArgs e)
     {
         // 1. Busca os remédios salvos no banco SQLite configurado ontem
         var lista = await App.Banco.GetMedicamentos();
@@ -156,7 +156,7 @@ public partial class MainPage : ContentPage
             return;
         }
 
-        /* 2. Monta o texto do prontuário formatado
+        // 2. Monta o texto do prontuário formatado
         string prontuario = $"📋 MEU PRONTUÁRIO - {DateTime.Now:dd/MM/yyyy}\n\n";
         foreach (var m in lista)
         {
@@ -218,4 +218,3 @@ public partial class MainPage : ContentPage
         });
     }
 }
-
