@@ -156,14 +156,14 @@ public partial class MainPage : ContentPage
             return;
         }
 
-        // 2. Monta o texto do prontuário formatado
+        /* 2. Monta o texto do prontuário formatado
         string prontuario = $"📋 MEU PRONTUÁRIO - {DateTime.Now:dd/MM/yyyy}\n\n";
         foreach (var m in lista)
         {
             prontuario += $"💊 {m.Nome} ({m.Dosagem})\n";
         }
 
-        /* --- AQUI ENTRA A SEGURANÇA (VERONICA) ---
+        // --- AQUI ENTRA A SEGURANÇA (VERONICA) ---
         // Chamamos o SecurityHelper para proteger o texto
         string hashSeguro = SecurityHelper.GerarHash(prontuario);
 
@@ -175,6 +175,8 @@ public partial class MainPage : ContentPage
             Uri = "App Meu Remédio"
 
         });*/
+
+
         // ADICIONE ISSO ABAIXO DO SHARE:
         await DisplayAlert("Sucesso", "Compartilhamento concluído! Retornando ao início...", "OK");
     }
